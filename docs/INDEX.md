@@ -7,7 +7,7 @@
 
 ## Troubleshooting cases
 
-(nog geen cases)
+- [Rocksmith 2014 start niet - SIGSYS crash](troubleshooting/rocksmith2014-wont-launch-sigsys.md) - nog open
 
 ## Decisions
 
