@@ -24,6 +24,20 @@ De extreme ruis en te hoge gitaar-gain in Rocksmith 2014 op Bazzite oplossen zon
 
 ## Belangrijkste bevindingen
 
+## Werkende Real Tone-kabelconfiguratie
+
+De kabel werkt in de huidige setup via deze combinatie:
+
+- Bazzite KDE / Fedora Atomic / Wayland
+- Real Tone Cable via USB `12ba:00ff`
+- ALSA capture: card 0, device 0, mono, S16_LE, 48 kHz
+- Rocksmith gestart via de bestaande Protontricks Launcher-methode
+- Proton Experimental in het eerder werkende prefix/AppID `2661300`
+- De actieve Rocksmith-kopie wordt vanuit de bestaande Downloads-locatie gestart
+- De kabel wordt door Rocksmith rechtstreeks als ALSA-captureapparaat geopend
+
+Deze combinatie moet behouden blijven. Niet overstappen naar AppID `221680`, een ander prefix of een nieuwe launchmethode. Deze configuratie verklaart waarom de kabel wordt herkend en input levert; de precieze oorzaak van de te hoge hoorbare gain is hiermee nog niet definitief opgelost.
+
 1. Rocksmith bezit rechtstreeks `/dev/snd/pcmC0D0c`; `fuser` toont PID 21276.
 2. ALSA capture is actief: mono S16_LE, 48 kHz, period 256, buffer 1024.
 3. De enige directe hardware-control is `Mic Capture Volume`:
