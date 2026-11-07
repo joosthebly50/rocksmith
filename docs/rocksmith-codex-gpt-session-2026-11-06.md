@@ -38,6 +38,25 @@ De kabel werkt in de huidige setup via deze combinatie:
 
 Deze combinatie moet behouden blijven. Niet overstappen naar AppID `221680`, een ander prefix of een nieuwe launchmethode. Deze configuratie verklaart waarom de kabel wordt herkend en input levert; de precieze oorzaak van de te hoge hoorbare gain is hiermee nog niet definitief opgelost.
 
+## Volledige uitgevoerde stappen
+
+1. De Real Tone-kabel via USB aangesloten en gecontroleerd met USB-ID `12ba:00ff`.
+2. ALSA gecontroleerd met `cat /proc/asound/cards` en `arecord -l`; de kabel verscheen als card 0/device 0 (`USB Audio`).
+3. PipeWire-bronnen, sinks, source-outputs en sink-inputs read-only geïnventariseerd.
+4. Vastgesteld dat de Real Tone-bron `alsa_input.usb-Hercules_Rocksmith_USB_Guitar_Adapter-00.mono-fallback` is.
+5. Vastgesteld dat de systeem-defaultbron aanvankelijk de Turtle Beach Stealth Pro Xbox was; daarom is de defaultbron niet globaal gewijzigd.
+6. De werkende Protontricks Launcher-route en het bestaande prefix/AppID `2661300` behouden.
+7. Rocksmith gestart en gecontroleerd dat de kabel door de game wordt geopend.
+8. De actieve Rocksmith-PID, Wine/Proton-processen, prefixomgeving en audio-backend geïnspecteerd zonder credentials te publiceren.
+9. Vastgesteld dat Rocksmith het ALSA-capturedevice rechtstreeks bezet (`/dev/snd/pcmC0D0c`).
+10. Het Rocksmith-venster tijdelijk zichtbaar gemaakt toen het buiten het bureaublad stond; dit wijzigde geen audio- of kabelinstelling.
+11. Een tijdelijke PipeWire-mute-test uitgevoerd en automatisch teruggedraaid; de hoorbare ruis veranderde niet.
+12. De ALSA-control `Mic Capture Volume` read-only vastgesteld: bereik 0–37, oorspronkelijke waarde 37 (+10 dB).
+13. Een tijdelijke A/B-test met een lagere Mic-waarde uitgevoerd en automatisch hersteld naar 37. De luisterwaarneming was tegenstrijdig en leverde geen betrouwbare oorzaak op.
+14. Geconstateerd dat de open instrumentplug al veel ruis geeft voordat de gitaar wordt aangesloten.
+15. Geconstateerd dat Rocksmith-audio wegvalt bij minimaliseren of focusverlies; dit is als afzonderlijk window/audio-probleem vastgelegd.
+16. Geen permanente gain-, PipeWire-, Wine- of ALSA-wijziging doorgevoerd, omdat de bron van de gain nog niet eenduidig is bewezen.
+
 1. Rocksmith bezit rechtstreeks `/dev/snd/pcmC0D0c`; `fuser` toont PID 21276.
 2. ALSA capture is actief: mono S16_LE, 48 kHz, period 256, buffer 1024.
 3. De enige directe hardware-control is `Mic Capture Volume`:
