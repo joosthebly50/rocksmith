@@ -121,3 +121,9 @@ Custom Forge CDLC is hersteld met CustomsForge CDLC Enabler v4.0. Na herstart me
 Gain is nog niet volledig opgelost. Ruwe opname: RMS `-28.46 dBFS`, piek `-4.1 dBFS`, zonder clipping. ALSA `Mic=8/37` (`-4.11 dB`) klinkt duidelijk beter dan 37/37; 2/37 werd nog zachter.
 
 PipeASIO/PipeWire is de volgende geplande test. Herstelpunten staan in `pre-pipeasio-20261108-153703` en `rocksmith-complete-20261108-144556`; de complete backup is ook gekopieerd naar `~/Homelab/Rocksmith/` en `~/Documents/Rocksmith/`.
+
+## GPT-6-terugkoppeling
+
+GPT-6 bevestigt dat ALSA `Mic=37/37` (+10 dB) de hoorbare vervorming waarschijnlijk versterkt, terwijl `8/37` (-4.11 dB) duidelijk beter klinkt. Omdat de opnames geen digitale clipping tonen, blijft analoge/inputvervorming mogelijk.
+
+Plan voor de volgende sessie: de huidige configuratie veiligstellen; PipeASIO/PipeWire als alternatief voor ALSA testen; latency, ruis en geluidskwaliteit objectief vergelijken; de Stealth Pro-voice-mic apart houden; achtergrond-audio afzonderlijk blijven testen; en volledig kunnen terugrollen.

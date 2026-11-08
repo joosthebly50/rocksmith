@@ -45,3 +45,5 @@ Steam-installatie hersteld door gebruiker. Kabel 12ba:00ff zichtbaar. Nieuw audi
 - Pre-PipeASIO-backup: `/var/home/Joost/rocksmith-audio-debug/backups/pre-pipeasio-20261108-153703`.
 - Complete herstelbackup: `/var/home/Joost/rocksmith-audio-debug/backups/rocksmith-complete-20261108-144556`.
 - Volgende test: PipeASIO/PipeWire vergelijken met directe ALSA, met rollback.
+- GPT-6-terugkoppeling verwerkt: 37/37 (+10 dB) gaf hoorbare vervorming; 8/37 (-4.11 dB) klinkt duidelijk beter. Geen digitale clipping gemeten; analoge/inputvervorming blijft mogelijk.
+- GPT-6-plan voor de volgende sessie: huidige configuratie veiligstellen, PipeASIO/PipeWire testen, latency/ruis/geluidskwaliteit objectief vergelijken met ALSA, Stealth Pro-mic apart houden, achtergrond-audio als afzonderlijk probleem testen en volledig kunnen terugrollen.
