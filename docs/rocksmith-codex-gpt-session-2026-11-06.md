@@ -109,3 +109,15 @@ Rocksmith-audio valt weg zodra de game wordt geminimaliseerd of zodra een ander 
 
 - Diagnostische logs: `~/rocksmith-audio-debug/`
 - Dit sessiedocument: `rocksmith-codex-gpt-session.md`
+
+## 2026-11-08 — Eindstatus
+
+De officiële Steam-installatie gebruikt AppID `221680` met Proton 10. De Real Tone Cable (`12ba:00ff`) werkt via ALSA card 0/device 0 op mono 48 kHz. `RealToneCableOnly=1` blijft actief zodat de Turtle Beach Stealth Pro-microfoon apart blijft.
+
+RSMods is geïnstalleerd. De lokale `xinput1_3.dll` en `d3dx9_42.dll` zijn geladen; `AllowAudioInBackground=on` is ingesteld. Geminimaliseerd geluid werkte tijdens een succesvolle test, maar moet na nieuwe herstarts opnieuw worden gevalideerd.
+
+Custom Forge CDLC is hersteld met CustomsForge CDLC Enabler v4.0. Na herstart meldde de game `Enumerating downloadable content`; de gebruiker bevestigde dat de DLC terug is. De officiële `dlc/`-map bevat 640 `.psarc`-bestanden.
+
+Gain is nog niet volledig opgelost. Ruwe opname: RMS `-28.46 dBFS`, piek `-4.1 dBFS`, zonder clipping. ALSA `Mic=8/37` (`-4.11 dB`) klinkt duidelijk beter dan 37/37; 2/37 werd nog zachter.
+
+PipeASIO/PipeWire is de volgende geplande test. Herstelpunten staan in `pre-pipeasio-20261108-153703` en `rocksmith-complete-20261108-144556`; de complete backup is ook gekopieerd naar `~/Homelab/Rocksmith/` en `~/Documents/Rocksmith/`.

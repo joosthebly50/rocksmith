@@ -28,3 +28,20 @@
 - `.png` (Reddit-post-afbeelding) opnieuw gestitcht vanuit de bijgewerkte PDF (11 pagina's, was 5)
 - Nieuwe map `docs/troubleshooting/18-7-2026/` aangemaakt met alle bijlagen voor Ubisoft-ticket #26368801 (kopieen, originelen blijven op hun eigen plek staan): `rocksmith2014-wine-wasapi-capture-bug-report.pdf`, `rocksmith2014-wont-launch-sigsys.pdf`, `CHANGELOG.pdf`, `rocksmith2014-linux-proton-bugreport.pdf` + `.png`
 - Voor de Reddit-update-post: eerst `rocksmith2014-linux-proton-bugreport.pdf` en `rocksmith2014-wine-wasapi-capture-bug-report.pdf` samengevoegd (ghostscript) tot een 20-pagina PDF en gestitcht tot `docs/rocksmith2014-full-report-everything.png` - bleek te lang; vervangen door `docs/rocksmith2014-today-18-7-2026.png`, gestitcht van alleen `rocksmith2014-wine-wasapi-capture-bug-report.pdf` (9 pagina's, uitsluitend het 2026-07-18-onderzoek)
+
+## 2026-11-05 — Nieuwe kabeltest
+
+Steam-installatie hersteld door gebruiker. Kabel 12ba:00ff zichtbaar. Nieuw audiodump ziet kabel maar openen faalt met -9996. Backup onder backups/. Eerste test: ExclusiveMode=1, Win32UltraLowLatencyMode=1, RealToneCableOnly=1. Resultaat nog te controleren. Virtuele inputdienst herstart; ydotool relatieve beweging werkt met flat profiel (factor 1.5).
+
+## 2026-11-08 — Werkende Linux-audioketen en Custom Forge
+
+- Officiële Steam-route: AppID `221680`, Proton 10, Real Tone Cable `12ba:00ff`, ALSA card 0/device 0, mono 48 kHz.
+- RSMods `AllowAudioInBackground=on` en DLL-override `xinput1_3=n,b;d3dx9_42=n,b` toegepast; lokale DLL's zijn in het actieve proces geladen.
+- CustomsForge CDLC Enabler v4.0 toegepast. Na herstart verscheen `Enumerating downloadable content` en Custom Forge-DLC werkte weer.
+- Officiële `dlc/`-map bevat 640 `.psarc`-bestanden.
+- `RealToneCableOnly=1` behouden; Stealth Pro blijft apart voor voice.
+- Ruwe Real Tone-opname: RMS `-28.46 dBFS`, piek `-4.1 dBFS`, geen digitale clipping. Playback sample: RMS `-20.47 dBFS`, piek `-4.5 dBFS`, geen clipping.
+- ALSA `Mic` getest op 37, 20, 2 en 8. De gebruiker vond 8/37 (`-4.11 dB`) duidelijk beter; dit is de huidige werkwaarde.
+- Pre-PipeASIO-backup: `/var/home/Joost/rocksmith-audio-debug/backups/pre-pipeasio-20261108-153703`.
+- Complete herstelbackup: `/var/home/Joost/rocksmith-audio-debug/backups/rocksmith-complete-20261108-144556`.
+- Volgende test: PipeASIO/PipeWire vergelijken met directe ALSA, met rollback.
